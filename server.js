@@ -1,12 +1,20 @@
 const express = require("express");
 const app = express();
+const path = require("path");
+const { upload } = require("./middlewares/multerConfig");
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.post("/api/upload", upload.single("product-ingredients"), (req, res) => {
+  console.log(req.body);
+  console.log(req.file);
+  res.redirect("/");
 });
 
 app.listen(5000, () => {
-  console.log("server is listening to port 5000");
+  console.log("Server is listening on port 5000");
 });
 
 // const { GoogleGenerativeAI } = require("@google/generative-ai");
