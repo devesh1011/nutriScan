@@ -3,15 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>File Upload Form</title>
 </head>
 
 <body>
-
-  <form action="/api/upload" method="post">
-    <input type="file" name="file" id="file">
-    <button type="submit">Upload</button>
+  <form action="/api/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="product-ingredients"> <!-- Check the name attribute -->
+    <input type="submit" value="Upload">
   </form>
 </body>
 
